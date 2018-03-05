@@ -1,9 +1,8 @@
 #include <iostream>
-#include "constants.h"
+#include <vector>
 
-typedef int (&array7x8)[constants::rows][constants::columns];
-array7x8 calculateTriangle();
-void printTriangle(int triangle[][constants::columns]);
+std::vector<int> calculateTriangle(int num);
+void printTriangle(std::vector<int> triangle);
 
 int main()
 {
@@ -13,40 +12,27 @@ int main()
 	std::cin >> rows;
 	printTriangle(int triangle[rows][rows+1])
 	*/
-	int triangle[] = calculateTriangle();
-
+	std::cout << "Enter the amount of numbers you want printed: ";
+	int num;
+	std::cin >> num;
+	std::vector<int> triangle = calculateTriangle(num);
 	printTriangle(triangle);
 	return 0;
 }
 
-array7x8 calculateTriangle()
+std::vector<int> calculateTriangle(int num)
 {
-	int triangle[constants::rows][constants::columns] = {};
-	triangle[0][0] = 1;
-	//0 0 1
-	//1 0 1
-	//2 1
-	for (int i = 0; i < constants::rows; ++i)
-	{
-		for (int j = 0; j < constants::columns; ++j)
-		{
-			triangle[i + 1][j] = triangle[i][j];
-		}
+	std::vector<int> triangle = {1, 1};
+	triangle.resize(num);
+	for (int i = 2; i < num; ++i) {
+		triangle[i] = triangle[i - 1] + triangle[i - 2];
 	}
 	return triangle;
 }
 
-void printTriangle(int triangle[][constants::columns])
+void printTriangle(std::vector<int> triangle)
 {
-	for (int i = 0; i < constants::rows; ++i)
-	{
-		for (int j = 0; j < constants::columns; ++j)
-		{
-			std::cout << triangle[i][j] << ' ';
-			if (j == (constants::columns - 1))
-			{
-				std::cout << '\n';
-			}
-		}
+	for (int i = 0; i < triangle.size(); ++i) {
+		std::cout << triangle[i] << " ";
 	}
 }
