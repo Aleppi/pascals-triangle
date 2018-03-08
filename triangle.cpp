@@ -10,11 +10,6 @@ int main()
 {
 	
 	std::cout << "Enter the amount of rows you wish to display: ";
-	/*int rows;
-	std::cin >> rows;
-	printTriangle(int triangle[rows][rows+1])
-	*/
-	/*std::cout << "Enter the amount of numbers you want printed: ";*/
 	int rows;
 	std::cin >> rows;
 	vector2d triangle = calculateTriangle(rows);
@@ -32,7 +27,7 @@ vector2d calculateTriangle(int rows)
 				row.push_back(1);
 			else if (i == 1 && j == 1)
 				row.push_back(1);
-			else if (i == 2 && j == 1)
+			else
 				row.push_back(vec[i - 1][j - 1] + vec[i - 1][j]);
 		}
 		vec.push_back(row);
@@ -44,7 +39,7 @@ void printTriangle(vector2d triangle)
 {
 	for (int i = 0; i < triangle.size(); ++i) {
 		for (int j = 0; j < triangle[i].size(); ++j) {
-			std::cout << triangle[i][j];
+			std::cout << triangle[i][j] << " ";
 		}
 		std::cout << '\n';
 	}
