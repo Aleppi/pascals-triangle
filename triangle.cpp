@@ -1,5 +1,6 @@
 #include <iostream>
 #include <vector>
+#include "userInput.h"
 
 typedef std::vector<std::vector<int>> vector2d;
 
@@ -8,13 +9,19 @@ void printTriangle(vector2d triangle);
 
 int main()
 {
-	
-	std::cout << "Enter the amount of rows you wish to display: ";
-	int rows;
-	std::cin >> rows;
-	vector2d triangle = calculateTriangle(rows);
-	printTriangle(triangle);
-	return 0;
+	bool running = true;
+    while (running) {
+
+
+        std::cout << "Enter the amount of rows you wish to display: ";
+        int rows;
+        std::cin >> rows;
+        vector2d triangle = calculateTriangle(rows);
+        printTriangle(triangle);
+        
+        running = userMenu();
+    }
+    return 0;
 }
 
 vector2d calculateTriangle(int rows)
