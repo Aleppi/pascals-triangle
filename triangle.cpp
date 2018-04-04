@@ -9,7 +9,7 @@ void printTriangle(vector2d triangle);
 
 int main()
 {
-	bool running = true;
+	int running = 1;
     while (running) {
 
 
@@ -19,7 +19,7 @@ int main()
         vector2d triangle = calculateTriangle(rows);
         printTriangle(triangle);
         
-        running = userMenu();
+        running = userInput::userMenu();
     }
     return 0;
 }
