@@ -1,0 +1,24 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aleppi/Projects/pascals-triangle/triangle.cpp
+iostream
+-
+vector
+-
+userInput.h
+/home/aleppi/Projects/pascals-triangle/userInput.h
+
+/home/aleppi/Projects/pascals-triangle/userInput.h
+stdio.h
+-
+string.h
+-
+ctype.h
+-
+
